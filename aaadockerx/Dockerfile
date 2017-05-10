@@ -14,6 +14,8 @@ RUN yum install -y wget && yum install -y telnet elinks openssh-server unzip
 
 RUN yum install -y java
 
+RUN yum install -y xterm
+
 RUN yum install -y sudo
 RUN useradd -ms /bin/bash user && \ 
 echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
@@ -28,7 +30,7 @@ ENV MYVALUE my-value
 
 EXPOSE 80
 
-CMD ["/home/user/triplea_1_8_0_9triplea_unix.sh"]
+CMD ["/home/user/triplea_1_8_0_9/triplea_unix.sh"]
 
 
 
