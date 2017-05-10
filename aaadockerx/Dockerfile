@@ -6,12 +6,16 @@
 #     possibly with observer container
 #     For now just get a repeatable container that can be built
 #
-FROM centos:stable
+FROM centos:latest
 MAINTAINER InfraStructureJames <infrastructurejames@gmail.com>
 
 RUN yum update -y && yum upgrade -y
-RUN yum install wget && yum install -y telnet elinks openssh-server
+RUN yum install -y wget && yum install -y telnet elinks openssh-server unzip
 
+RUN useradd -ms /bin/bash user
+USER user
+RUN cd ~user && wget https://github.com/triplea-game/triplea/releases/download/1.8.0.9/triplea_1_8_0_9_all_platforms.zip
+RUN cd ~user && unzip triplea_1_8_0_9_all_platforms.zip
 
 ENV MYVALUE my-value
 
