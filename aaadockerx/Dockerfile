@@ -17,7 +17,7 @@ RUN yum install -y java
 RUN yum install -y xterm
 
 RUN yum install -y sudo
-RUN useradd -ms /bin/bash user && \ 
+RUN useradd -ms /bin/bash user -u 1001 && \ 
 echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
 chmod 0440 /etc/sudoers.d/user
 
