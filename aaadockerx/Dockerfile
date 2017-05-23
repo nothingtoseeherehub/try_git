@@ -25,7 +25,7 @@ chmod 0440 /etc/sudoers.d/user
 USER user
 RUN cd ~user && wget https://github.com/triplea-game/triplea/releases/download/1.8.0.9/triplea_1_8_0_9_all_platforms.zip
 RUN cd ~user && unzip triplea_1_8_0_9_all_platforms.zip
-
+RUN mkdir ~user/triplea
 ENV MYVALUE my-value
 
 EXPOSE 80
